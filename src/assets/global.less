@@ -1,3 +1,4 @@
+@gg-purple-color: #5353b3;
 @font-face {
     font-family: 'ggFont';
     src: url("gg.ttf");
@@ -24,7 +25,7 @@
     .login-send-code {
         .ant-input-group-addon:last-child {
             background: #f7f7ff;
-            color: #5353b3;
+            color: @gg-purple-color;
             cursor: pointer;
         }
     }
@@ -40,15 +41,15 @@
     overflow: hidden;
     box-shadow: 2px 2px 4px #ddd;
     border: 0;
-}
-
-.ant-card-head {
-    background: #f7f9fa
-}
-
-.ant-card-wider-padding .ant-card-head {
-    padding: 0 20px;
-    text-align: left;
+    &-head {
+        background: #f7f9fa
+    }
+    &-wider-padding {
+        .ant-card-head {
+            padding: 0 20px;
+            text-align: left;
+        }
+    }
 }
 
 .great-tabs {
@@ -74,7 +75,7 @@
     .ant-tabs-ink-bar {
         height: 6px;
         border-radius: 3px;
-        background-color: #5353b3;
+        background-color: @gg-purple-color;
     }
     .ant-tabs-nav {
         .ant-tabs-tab {
@@ -82,8 +83,82 @@
         }
         .ant-tabs-tab-active,
         .ant-tabs-tab:hover {
-            color: #5353b3;
+            color: @gg-purple-color;
             font-weight: normal;
         }
     }
+}
+
+.ant-table {
+    color: rgba(0, 0, 0, .8);
+    &-wrapper {
+        width: 100%;
+    }
+    &-thead {
+        >tr>th {
+            background: #f7f9fa;
+            text-align: center;
+            padding: 10px 16px;
+            font-size: 12px;
+            line-height: 12px;
+            border-bottom: 0;
+            height: 40px;
+        }
+    }
+    &-tbody {
+        a {
+            color: @gg-purple-color;
+            text-decoration: underline;
+        }
+        >tr {
+            >td {
+                text-align: center;
+                padding: 10px 16px;
+                font-size: 12px;
+                line-height: 12px;
+                border-bottom: 0;
+                height: 40px;
+            }
+        }
+        >tr:nth-of-type(2n) {
+            background: #f7f9fa;
+        }
+        .ant-tag {
+            color: #fff;
+            width: 32px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            border-radius: 2px;
+            transform: scale(.9);
+            &-purple {
+                background: #c1c1ff;
+            }
+            &-yellow {
+                background: #f8bb40
+            }
+        }
+    }
+    &-pagination.ant-pagination {
+        transform: scale(.8);
+    }
+}
+
+.ant-btn {
+    border-radius: 3px;
+    padding: 0 18px;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+    border-color: @gg-purple-color;
+    color: @gg-purple-color;
+}
+
+.ant-btn-default {
+    border-color: @gg-purple-color;
+    color: @gg-purple-color;
 }
