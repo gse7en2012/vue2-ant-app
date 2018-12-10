@@ -5,6 +5,8 @@ import Admin from './views/Admin';
 import Login from './views/Login';
 import MyIndex from './views/MyIndex';
 import Data from './views/Data';
+import Profile from './views/Profile';
+import Index from './views/Index';
 
 Vue.use(Router);
 
@@ -26,12 +28,16 @@ const routes = [{
 		children: [{
 			path: 'index',
 			name: 'index',
-			component: MyIndex
+			component: Index
 		}, {
 			path: 'data',
 			name: 'data',
 			component: Data
-		}, ]
+		}, {
+			path: 'profile',
+			name: 'profile',
+			component: Profile
+		}]
 	},
 	{
 		path: '/about',

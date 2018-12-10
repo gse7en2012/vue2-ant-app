@@ -11,14 +11,14 @@
 									<p class="title">今日新增</p>
 									<p class="num">8,323</p>
 									<p class="trend">
-										<span class="arrow up">22.33%</span>
+										<span class="arrow up gg-red">22.33%</span>
 									</p>
 								</div>
 								<div class="item">
 									<p class="title">今日新增</p>
 									<p class="num">4534344</p>
 									<p class="trend">
-										<span class="arrow up">22.33%</span>
+										<span class="arrow up gg-green">22.33%</span>
 									</p>
 								</div>
 							</div>
@@ -27,14 +27,14 @@
 									<p class="title">今日新增</p>
 									<p class="num">8999</p>
 									<p class="trend">
-										<span class="arrow up">22.33%</span>
+										<span class="arrow up gg-red">22.33%</span>
 									</p>
 								</div>
 								<div class="item">
 									<p class="title">今日新增</p>
 									<p class="num">8999</p>
 									<p class="trend">
-										<span class="arrow up">22.33%</span>
+										<span class="arrow up gg-green">22.33%</span>
 									</p>
 								</div>
 							</div>
@@ -58,14 +58,14 @@
 									<p class="title">今日新增</p>
 									<p class="num">8,323</p>
 									<p class="trend">
-										<span class="arrow up">22.33%</span>
+										<span class="arrow up gg-red">22.33%</span>
 									</p>
 								</div>
 								<div class="item">
 									<p class="title">今日新增</p>
 									<p class="num">4534344</p>
 									<p class="trend">
-										<span class="arrow up">22.33%</span>
+										<span class="arrow up gg-green">22.33%</span>
 									</p>
 								</div>
 							</div>
@@ -74,14 +74,14 @@
 									<p class="title">今日新增</p>
 									<p class="num">8999</p>
 									<p class="trend">
-										<span class="arrow up">22.33%</span>
+										<span class="arrow up gg-red">22.33%</span>
 									</p>
 								</div>
 								<div class="item">
 									<p class="title">今日新增</p>
 									<p class="num">8999</p>
 									<p class="trend">
-										<span class="arrow up">22.33%</span>
+										<span class="arrow up gg-green">22.33%</span>
 									</p>
 								</div>
 							</div>
@@ -96,8 +96,51 @@
 					</div>
 				</a-card>
 
-				<a-card title="设备统计">
+				<a-card>
 					<!-- <a href="#" slot="extra">more</a> -->
+					<div class="card-title" slot="title">
+						<div class="ant-card-head-title" style="padding:0;">设备统计</div>
+						<div class="card-title-box">
+							<a-form layout="inline" class="card-form">
+								<a-form-item
+									label="所属物业"
+									style="width:25%;"
+									:wrapperCol="{ span: 14 }"
+									:labelCol="{ span: 6}"
+								>
+									<a-select size="small">
+										<a-select-option value="male">male</a-select-option>
+										<a-select-option value="female">female</a-select-option>
+									</a-select>
+								</a-form-item>
+								<a-form-item
+									label="所属小区"
+									style="width:25%;"
+									:wrapperCol="{ span: 14 }"
+									:labelCol="{ span: 6 }"
+								>
+									<a-select size="small">
+										<a-select-option value="male">male</a-select-option>
+										<a-select-option value="female">female</a-select-option>
+									</a-select>
+								</a-form-item>
+								<a-form-item
+									label="关键词"
+									style="width:30%;"
+									:wrapperCol="{ span: 16 }"
+									:labelCol="{ span: 6 }"
+								>
+									<a-input type="text" placeholder="Password" size="small">
+										<a-icon slot="prefix" type="search" style="color:rgba(0,0,0,.25)"/>
+									</a-input>
+								</a-form-item>
+								<a-form-item style="width:20%;">
+									<a-button size="small">重置</a-button>
+									<a-button type="primary" size="small">查询</a-button>
+								</a-form-item>
+							</a-form>
+						</div>
+					</div>
 					<div class="card-ctx">
 						<div style="width:100%;">
 							<div class="btn-box">
@@ -345,39 +388,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-#components-layout-demo-responsive .logo {
-	height: 32px;
-	background: rgba(255, 255, 255, 0.2);
-	margin: 16px;
-}
-.wrap {
-	min-width: 800px;
-	.top {
-		padding: 15px 15px 0 15px;
-		margin-bottom: -15px;
-	}
-	.ctx {
-		display: flex;
-		width: 100%;
-		padding: 15px;
-		padding-bottom: 0;
-		.box {
-			flex: 1;
-		}
-		.left {
-			margin-right: 7.5px;
-		}
-		.right {
-			margin-left: 7.5px;
-		}
-	}
-	.block {
-		background: #fff;
-		box-shadow: 2px 2px 2px #eee;
-		margin-bottom: 15px;
-	}
-}
-
 .card {
 	&-ctx {
 		display: flex;
@@ -398,11 +408,12 @@ export default {
 			top: -10px;
 			display: flex;
 			left: 50%;
+			z-index: 9;
 			transform: translateX(-50%);
 			span {
 				flex: 1;
 				min-width: 60px;
-				line-height: 28px;
+				line-height: 24px;
 				font-size: 13px;
 				color: #666;
 				text-align: center;
@@ -460,8 +471,12 @@ export default {
 			}
 		}
 	}
+	&-title-box {
+		font-weight: normal;
+		font-size: 12px;
+	}
 }
-.btn-box{
+.btn-box {
 	margin-bottom: 24px;
 	padding-left: 20px;
 }

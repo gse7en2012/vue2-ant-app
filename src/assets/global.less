@@ -1,8 +1,6 @@
-@gg-purple-color: #5353b3;
-@font-face {
-    font-family: 'ggFont';
-    src: url("gg.ttf");
-}
+@import 'ggStyle.less';
+
+
 
 .ant-layout-sider,
 .ant-menu-dark,
@@ -147,13 +145,34 @@
     }
 }
 
+.ant-input:focus {
+	border-color: @gg-purple-color;
+	box-shadow: 0 0 0 2px rgba(44, 32, 156, 0.2);
+}
+
+.ant-select-dropdown-menu-item:hover,
+.ant-select-dropdown-menu-item-active {
+    background: #e8e8ff;
+    color: @gg-purple-color;
+    font-weight: 400;
+}
+
+.ant-select-dropdown-menu-item-selected,
+.ant-select-dropdown-menu-item-selected:hover {
+    font-weight: 400;
+}
+
+.ant-select-open .ant-select-selection {
+    border-color: @gg-purple-color;
+}
+
 .ant-btn {
     border-radius: 3px;
     padding: 0 18px;
 }
 
-.ant-btn:hover,
-.ant-btn:focus {
+.ant-btn-default:hover,
+.ant-btn-default:focus {
     border-color: @gg-purple-color;
     color: @gg-purple-color;
 }
@@ -161,4 +180,18 @@
 .ant-btn-default {
     border-color: @gg-purple-color;
     color: @gg-purple-color;
+}
+
+.card-form {
+    &.ant-form {
+        label {
+            font-size: 13px;
+        }
+        .ant-btn-sm {
+            padding: 0 12px;
+            margin-right: 10px;
+            font-size: 13px;
+            border-radius: 2px;
+        }
+    }
 }

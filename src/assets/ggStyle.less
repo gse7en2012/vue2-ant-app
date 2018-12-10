@@ -1,0 +1,104 @@
+@gg-purple-color: #5353b3;
+@font-face {
+    font-family: 'ggFont';
+    src: url("gg.ttf");
+}
+
+.gg {
+    &-red {
+        color: #fe4f20;
+    }
+    &-green {
+        color: #1dbf6e,
+    }
+    &-row {
+        &-title {
+            background: #edf0f2;
+            height: 32px;
+            line-height: 32px;
+            padding: 0 15px;
+            border-radius: 2px; // font-weight: bold;
+            color: rgba(0, 0, 0, 0.85);
+        }
+        &-ctx,
+        &-top {
+            display: flex;
+            padding: 10px 0;
+            .ant-select-selection {
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+.amap-info-contentContainer {
+    background: #fff;
+    min-width: 350px;
+    position: absolute;
+    border-radius: 4px;
+    padding: 10px;
+	color: #999;
+	.gg-map-popup {
+		opacity: 1;
+		position: static;
+		z-index: 99;
+	}
+    &:after {
+        content: "";
+        height: 0;
+        width: 0;
+        border: 8px solid transparent;
+        border-top-color: #fff;
+        bottom: -16px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+    }
+    .title {
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        span {
+            font-size: 12px;
+            color: #999;
+            font-weight: normal;
+        }
+    }
+    .address {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    .tags {
+        overflow: hidden;
+        margin: 3px 0;
+        span {
+            float: left;
+            font-size: 12px;
+            line-height: 1.5;
+            padding: 0 4px;
+            margin-right: 2px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            transform: scale(0.9);
+            transform-origin: 0 0;
+        }
+    }
+    .details {
+        margin: 14px 0;
+        display: flex;
+        .item {
+            flex: 1;
+            text-align: center;
+            .line {
+                font-size: 12px;
+                line-height: 1;
+                margin-bottom: 4px;
+            }
+            span {
+                font-family: "ggFont";
+                font-size: 26px;
+                margin-right: 2px;
+            }
+        }
+    }
+}
