@@ -73,7 +73,7 @@ export default {
 		},
 		login(){
 			this.$router.push({
-				name:'admin'
+				path:'admin/index'
 			})
 		}
     }
@@ -82,13 +82,13 @@ export default {
 
 <style lang="less" scoped>
 .wrap {
-    background: #3a3758;
+	background: #3a3758 url('../assets/bg.png') no-repeat 50% 50%;
     position: relative;
     width: 100vw;
     height: 100vh;
     .login {
         &-box {
-            width: 460px;
+            width: 480px;
             border-radius: 5px;
             background: #fff;
             position: absolute;
@@ -138,7 +138,8 @@ export default {
         }
         &-logo {
             margin: 30px auto;
-            width: 145px;
+			width: 145px;
+			display: block;
         }
     }
 }

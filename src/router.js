@@ -12,9 +12,8 @@ Vue.use(Router);
 
 
 const routes = [{
-		path: '/',
-		name: 'home',
-		component: Home
+		path: '',
+		redirect: '/login',
 	},
 	{
 		path: '/login',
@@ -26,18 +25,23 @@ const routes = [{
 		name: 'admin',
 		component: Admin,
 		children: [{
-			path: 'index',
-			name: 'index',
-			component: Index
-		}, {
-			path: 'data',
-			name: 'data',
-			component: Data
-		}, {
-			path: 'profile',
-			name: 'profile',
-			component: Profile
-		}]
+				path: '',
+				redirect: 'index'
+			},
+			{
+				path: 'index',
+				name: 'index',
+				component: Index
+			}, {
+				path: 'data',
+				name: 'data',
+				component: Data
+			}, {
+				path: 'profile',
+				name: 'profile',
+				component: Profile
+			}
+		]
 	},
 	{
 		path: '/about',

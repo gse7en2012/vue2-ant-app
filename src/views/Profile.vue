@@ -1,6 +1,6 @@
 <template>
 	<a-layout-content :style="{ margin: '0' }">
-		<a-card title="个人信息">
+		<a-card title="个人信息" style="margin-bottom:80px;">
 			<!-- <a href="#" slot="extra">more</a> -->
 			<div class="card-ctx">
 				<div class="block">
@@ -100,12 +100,23 @@
 				</div>
 			</div>
 		</a-card>
+
+		<div class="bottom-bar">
+			<a-button type="primary" @click="showModal">确认</a-button>
+			<a-button>取消</a-button>
+		</div>
+
+		<a-modal title="保存个人信息" centered v-model="visible" @ok="hideModal" okText="保存" cancelText="取消">
+			<p>更复杂的例子，自定义了页脚的按钮，点击提交后进入 loading 状态，完成后关闭。</p>
+		</a-modal>
 	</a-layout-content>
 </template>
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			visible: false
+		};
 	},
 	async mounted() {},
 	methods: {
@@ -114,6 +125,19 @@ export default {
 		},
 		onBreakpoint(broken) {
 			console.log(broken);
+		},
+		showModal() {
+			this.visible = true;
+		},
+		hideModal() {
+			this.visible = false;
+		},
+		confirm() {
+			this.$confirm({
+				title: "Confirm",
+				okText: "确认",
+				cancelText: "取消"
+			});
 		}
 	}
 };
@@ -184,5 +208,23 @@ export default {
 
 .gg-row-top {
 	margin-bottom: -30px;
+}
+
+.bottom-bar {
+	position: fixed;
+	bottom: 0;
+	left: 215px;
+	right: 15px;
+	height: 80px;
+	background: #f7f9fa;
+	border-top: 1px solid #eee;
+	box-shadow: 2px 2px 2px 0 rgba(176,185,191,0.50);
+	padding-right: 30px;
+	.ant-btn {
+		float: right;
+		margin-right: 20px;
+		border-radius: 2px;
+		margin-top: 24px;
+	}
 }
 </style>

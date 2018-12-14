@@ -77,7 +77,7 @@ export default {
     }
     .block {
         background: #fff;
-        box-shadow: 2px 2px 4px #ccc;
+        box-shadow: 2px 2px 2px 0 rgba(176,185,191,0.50);
         margin-bottom: 15px;
     }
 }
