@@ -26,13 +26,13 @@
 					<span class="nav-text">数据统计</span>
 				</a-menu-item>
 				<a-menu-item key="3" @click="goToPage('profile')">
-					<img src="@/assets/icons/station_u.png" class="u" style="transform:scale(0.9);top:-2.5px;">
-					<img src="@/assets/icons/station.png" class="c" style="transform:scale(0.9)">
+					<img src="@/assets/icons/station_u.png" class="u">
+					<img src="@/assets/icons/station.png" class="c" >
 					<span class="nav-text">充电站管理</span>
 				</a-menu-item>
 				<a-menu-item key="4">
 					<img src="@/assets/icons/order_u.png" class="u">
-					<img src="@/assets/icons/order.png" class="c" style="top:-2px;">
+					<img src="@/assets/icons/order.png" class="c" >
 					<span class="nav-text">订单管理</span>
 				</a-menu-item>
 				<a-menu-item key="5">

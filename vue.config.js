@@ -16,7 +16,8 @@ module.exports = {
 					'success-color': '#1dbf6e',
 					'error-color': '#fe4f20',
 					'input-hover-border-color': '#5353b3',
-					'border-radius-base':'2px'
+					'border-radius-base': '2px',
+					'message-notice-content-padding': '1.2rem'
 				},
 				javascriptEnabled: true
 			}

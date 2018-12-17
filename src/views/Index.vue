@@ -125,8 +125,8 @@ export default {
 		addMarker() {
 			this.mapObj.clearMap();
 			const mapIcon = new AMap.Icon({
-				size: new AMap.Size(31, 36),
-				imageSize: new AMap.Size(31, 36),
+				size: new AMap.Size(32, 32),
+				imageSize: new AMap.Size(32, 32),
 				imageOffset: new AMap.Pixel(0, 0),
 				image: "http://img.dokerteam.com/map_fast.png" // 添加 Icon 图标 URL
 			});
@@ -156,8 +156,8 @@ export default {
 		addMarker2() {
 			// this.mapObj.clearMap();
 			const mapIcon = new AMap.Icon({
-				size: new AMap.Size(31, 35),
-				imageSize: new AMap.Size(31, 35),
+				size: new AMap.Size(32, 32),
+				imageSize: new AMap.Size(32, 32),
 				imageOffset: new AMap.Pixel(0, 0),
 				image: "http://img.dokerteam.com/map_slow.png" // 添加 Icon 图标 URL
 			});
@@ -180,8 +180,8 @@ export default {
 		addMarker3() {
 			// this.mapObj.clearMap();
 			const mapIcon = new AMap.Icon({
-				size: new AMap.Size(31, 35),
-				imageSize: new AMap.Size(31, 35),
+				size: new AMap.Size(32, 32),
+				imageSize: new AMap.Size(32, 32),
 				imageOffset: new AMap.Pixel(0, 0),
 				image: "http://img.dokerteam.com/map_offline.png" // 添加 Icon 图标 URL
 			});
@@ -305,14 +305,14 @@ export default {
 		margin-top: 0.5rem;
 	}
 	.icon {
-		width: 20px;
+		width: 25px;
 		margin-right: 6px;
 		margin-top: -6px;
 	}
-	.icon1 {
-		width: 26px;
-		margin-top: -4px;
-	}
+	// .icon1 {
+	// 	width: 26px;
+	// 	margin-top: -4px;
+	// }
 	.special {
 		display: inline-block;
 		padding: 2px 4px;
