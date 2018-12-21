@@ -128,7 +128,7 @@ export default {
 				size: new AMap.Size(32, 32),
 				imageSize: new AMap.Size(32, 32),
 				imageOffset: new AMap.Pixel(0, 0),
-				image: "http://img.dokerteam.com/map_fast.png" // 添加 Icon 图标 URL
+				image: "http://img.dokerteam.com/map_fast_hd.png" // 添加 Icon 图标 URL
 			});
 			const marker = new AMap.Marker({
 				map: this.mapObj,
@@ -159,7 +159,7 @@ export default {
 				size: new AMap.Size(32, 32),
 				imageSize: new AMap.Size(32, 32),
 				imageOffset: new AMap.Pixel(0, 0),
-				image: "http://img.dokerteam.com/map_slow.png" // 添加 Icon 图标 URL
+				image: "http://img.dokerteam.com/map_slow_hd.png" // 添加 Icon 图标 URL
 			});
 			const marker = new AMap.Marker({
 				map: this.mapObj,
@@ -183,7 +183,7 @@ export default {
 				size: new AMap.Size(32, 32),
 				imageSize: new AMap.Size(32, 32),
 				imageOffset: new AMap.Pixel(0, 0),
-				image: "http://img.dokerteam.com/map_offline.png" // 添加 Icon 图标 URL
+				image: "http://img.dokerteam.com/map_offline_hd.png" // 添加 Icon 图标 URL
 			});
 			const marker = new AMap.Marker({
 				map: this.mapObj,

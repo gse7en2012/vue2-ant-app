@@ -1,8 +1,10 @@
 <template>
 	<div class="box">
 		<div class="col">
-			<a-card title="订单数走势" style="height:210px;" id="box1">
-				<!-- <a href="#" slot="extra">more</a> -->
+			<a-card style="height:210px;" id="box1">
+				<div class="card-title" slot="title">订单数走势
+					<a-button size="small" class="title-button" @click="showModal()">导出数据</a-button>
+				</div>
 				<div class="card-ctx">
 					<div class="left">
 						<div class="box">
@@ -34,8 +36,14 @@
 
 			<a-card id="box2">
 				<!-- <a href="#" slot="extra">more</a> -->
-				<div class="card-title" slot="title">
-					<div class="ant-card-head-title" style="padding:0;">设备统计</div>
+				<div class="card-title" slot="title">设备统计
+					<a-button size="small" class="title-button" @click="showModal()">导出数据</a-button>
+					<div class="gg-tabs">
+						<span>按小区</span>
+						<span>按设备</span>
+						<span class="current">按城市</span>
+						<span>按时间</span>
+					</div>
 				</div>
 				<div class="card-ctx">
 					<div style="width:100%;">
@@ -62,55 +70,42 @@
 			</a-card>
 		</div>
 		<div class="col">
-			<a-card title="订单数走势" id="box3">
-				<!-- <a href="#" slot="extra">more</a> -->
-				<div class="card-ctx">
-					<div class="left">
-						<div class="box">
-							<div class="item">
-								<p class="title">今日新增</p>
-								<p class="num">8,323</p>
-								<p class="trend">
-									<span class="arrow up gg-red">22.33%</span>
-								</p>
-							</div>
-							<div class="item">
-								<p class="title">今日新增</p>
-								<p class="num">4534344</p>
-								<p class="trend">
-									<span class="arrow up gg-green">22.33%</span>
-								</p>
-							</div>
-						</div>
-						<div class="box">
-							<div class="item">
-								<p class="title">今日新增</p>
-								<p class="num">8999</p>
-								<p class="trend">
-									<span class="arrow up gg-red">22.33%</span>
-								</p>
-							</div>
-							<div class="item">
-								<p class="title">今日新增</p>
-								<p class="num">8999</p>
-								<p class="trend">
-									<span class="arrow up gg-green">22.33%</span>
-								</p>
-							</div>
-						</div>
+			<a-card id="box3">
+				<div class="card-title" slot="title">订单数走势
+					<div class="gg-tabs wide">
+						<span>类型分布</span>
+						<span class="current">不同类型使用率</span>
 					</div>
 				</div>
-			</a-card>
-			<a-card title="订单数走势" id="box4">
 				<!-- <a href="#" slot="extra">more</a> -->
 				<div class="card-ctx">
+					<v-chart :options="opts1" class="gg-chart" theme="pink"/>
+				</div>
+			</a-card>
+			<a-card id="box4">
+				<div class="card-title" slot="title">订单数走势
+					<a-select size="small" class="title-select">
+						<a-select-option value="male">male</a-select-option>
+						<a-select-option value="female">female</a-select-option>
+					</a-select>
+				</div>
 
+				<!-- <a href="#" slot="extra">more</a> -->
+				<div class="card-ctx">
+					<v-chart :options="opts" class="gg-chart" theme="pink"/>
 				</div>
 			</a-card>
 		</div>
 	</div>
 </template>
 <script>
+import "echarts/lib/component/legend";
+import "echarts/lib/component/title";
+// import "echarts/lib/component/tooltip";
+import "echarts/lib/chart/bar";
+import "echarts/lib/chart/line";
+import "echarts/lib/chart/pie";
+
 const columns = [
 	{
 		dataIndex: "name",
@@ -121,7 +116,8 @@ const columns = [
 	{
 		title: "年龄",
 		dataIndex: "age",
-		key: "age"
+		key: "age",
+		sorter: true
 	},
 	{
 		title: "地址",
@@ -187,8 +183,117 @@ export default {
 	data() {
 		return {
 			screenHeight: document.documentElement.clientHeight + "px",
-			opts: {},
-			opts1: {},
+			opts: {
+				tooltip: {
+					trigger: "axis",
+					axisPointer: {
+						type: "shadow"
+					}
+				},
+				// legend: {
+				// 	data: ["2011年", "2012年"]
+				// },
+				grid: {
+					left: "5%",
+					right: "8%",
+					top: "2%",
+					bottom: "3%",
+					containLabel: true
+				},
+				xAxis: {
+					type: "value",
+					boundaryGap: [0, 0.01],
+					axisLine: {
+						show: false
+					},
+					axisTick: {
+						lineStyle: {
+							color: "#fff"
+						}
+					},
+					axisLabel: {
+						color: "#999"
+					}
+				},
+				yAxis: {
+					type: "category",
+					axisTick: {
+						lineStyle: {
+							color: "#fff"
+						}
+					},
+					axisLabel: {
+						color: "#999"
+					},
+					axisLine: {
+						show: false
+					},
+					data: [
+						"巴西",
+						"印尼",
+						"美国",
+						"印度",
+						"中国",
+						"世界人口(万)"
+					]
+				},
+				series: [
+					{
+						name: "2011年",
+						type: "bar",
+						barWidth:24,
+						itemStyle:{
+							color:'#F6AA10'
+						},
+						data: [18203, 23489, 29034, 104970, 131744, 630230]
+					}
+				]
+			},
+			opts1: {
+				tooltip: {
+					trigger: "item",
+					formatter: "{a} <br/>{b}: {c} ({d}%)"
+				},
+				legend: {
+					orient: "vertical",
+					x: "left",
+					left: "80%",
+					top: "center",
+					itemWidth: 12,
+					itemHeight: 12,
+					borderRadius: [0, 0, 0, 0],
+					textStyle: {
+						color: "#666"
+					},
+					data: [
+						"直接访问",
+						"邮件营销",
+						"联盟广告",
+						"视频广告",
+						"搜索引擎"
+					]
+				},
+				series: [
+					{
+						name: "访问来源",
+						type: "pie",
+						radius: ["35%", "70%"],
+						center: ["40%", "50%"],
+						avoidLabelOverlap: false,
+						roseType: "radius",
+						label: {
+							formatter: "{b}: {d}%"
+						},
+						data: [
+							{ value: 335, name: "直接访问" },
+							{ value: 310, name: "邮件营销" },
+							{ value: 234, name: "联盟广告" },
+							{ value: 135, name: "视频广告" },
+							{ value: 567, name: "搜索引擎" }
+						]
+					}
+				]
+			},
 			data,
 			columns
 		};
@@ -215,14 +320,22 @@ export default {
 }
 #box2 {
 	height: calc(~"100vh - 100px - 210px - 30px");
-	min-height:350px;
+	min-height: 350px;
 }
-#box3{
-	height:380px;
+#box3 {
+	height: 380px;
+	.gg-chart {
+		width: 100%;
+		height: 275px;
+	}
 }
-#box4{
+#box4 {
 	height: calc(~"100vh - 100px - 380px - 30px");
-	min-height:200px;
+	min-height: 200px;
+	.gg-chart {
+		width: 100%;
+		height: calc(~"100vh - 100px - 380px - 30px - 100px");
+	}
 }
 
 .box {
@@ -232,6 +345,58 @@ export default {
 		flex: 0 0 50%;
 		.ant-card {
 			margin: 10px 5px;
+		}
+	}
+}
+
+.title-select {
+	position: absolute;
+	right: 0;
+	min-width: 100px;
+	font-weight: normal;
+}
+
+.gg-tabs {
+	position: absolute;
+	top: 50%;
+	display: flex;
+	right: 0;
+	z-index: 9;
+	transform: translateY(-50%);
+	&.wide {
+		span {
+			min-width: 100px;
+		}
+	}
+	span {
+		flex: 1;
+		font-size: 0.75rem;
+		min-width: 60px;
+		line-height: 24px;
+		color: #9b9b9b;
+		text-align: center;
+		border: 1px solid #ddd;
+		background: #fff;
+		cursor: pointer;
+		position: relative;
+		z-index: 1;
+		font-weight: normal;
+		margin-left: -1px;
+		&.current {
+			z-index: 2;
+			background: #5353b3;
+			border-color: #5353b3;
+			background: #f7f7ff;
+			color: #5353b3;
+			// border-color:1px
+		}
+		&:first-of-type {
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+		}
+		&:last-of-type {
+			border-top-right-radius: 2px;
+			border-bottom-right-radius: 2px;
 		}
 	}
 }
@@ -247,46 +412,7 @@ export default {
 			flex: 70;
 			position: relative;
 		}
-		.gg-chart {
-			width: 100%;
-			height: 270px;
-		}
-		.gg-tabs {
-			position: absolute;
-			top: -10px;
-			display: flex;
-			left: 50%;
-			z-index: 9;
-			transform: translateX(-50%);
-			span {
-				flex: 1;
-				min-width: 60px;
-				line-height: 24px;
-				font-size: 13px;
-				color: #666;
-				text-align: center;
-				border: 1px solid #ddd;
-				border-top-left-radius: 4px;
-				border-bottom-left-radius: 4px;
-				position: relative;
-				z-index: 1;
-				&.current {
-					z-index: 2;
-					background: #5353b3;
-					border-color: #5353b3;
-					background: #f7f7ff;
-					color: #5353b3;
-					// border-color:1px
-				}
-				&:last-of-type {
-					margin-left: -1px;
-					border-top-left-radius: 0;
-					border-bottom-left-radius: 0;
-					border-top-right-radius: 4px;
-					border-bottom-right-radius: 4px;
-				}
-			}
-		}
+
 		.box {
 			display: flex;
 			text-align: center;
@@ -323,6 +449,18 @@ export default {
 					margin-top: -5px;
 				}
 			}
+		}
+	}
+	&-title {
+		height: 1.5rem;
+		position: relative;
+		.title-button {
+			width: 4rem;
+			padding: 0;
+			font-size: 0.75rem;
+			margin-left: 0.6rem;
+			position: relative;
+			top: -2px;
 		}
 	}
 	&-title-box {

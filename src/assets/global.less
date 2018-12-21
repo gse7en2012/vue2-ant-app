@@ -27,20 +27,20 @@
 }
 
 .ant-menu-item {
-	text-align: left;
-	img{
-		width: 14px;
-		margin-right: 10px;
-		position: relative;
-		top: -3px;
-	}
+    text-align: left;
+    img {
+        width: 14px;
+        margin-right: 10px;
+        position: relative;
+        top: -3px;
+    }
 }
 
 .ant-card {
     margin: 10px 15px;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 2px 2px 2px 0 rgba(176,185,191,0.50);
+    box-shadow: 2px 2px 2px 0 rgba(176, 185, 191, 0.50);
     border: 0;
     &-head {
         background: #f7f9fa
@@ -58,7 +58,7 @@
     .ant-tabs-bar {
         background: #fff;
         margin: 10px 15px;
-        box-shadow: 2px 2px 2px 0 rgba(176,185,191,0.50);
+        box-shadow: 2px 2px 2px 0 rgba(176, 185, 191, 0.50);
         border-bottom: 0;
         height: 70px;
         border-radius: 4px;
@@ -99,7 +99,9 @@
         >tr>th {
             background: #f7f9fa;
             text-align: center;
-            padding: 10px 16px;
+			// padding: 10px 16px;
+			padding:0;
+			white-space: nowrap;
             font-size: 12px;
             line-height: 12px;
             border-bottom: 0;
@@ -201,20 +203,20 @@
 
 .ant-popover {
     &-inner {
-		background: #3d3d87;
-		overflow: hidden;
-		border-radius: 4px;
-		&-content{
-			padding: 0;
-		}
+        background: #3d3d87;
+        overflow: hidden;
+        border-radius: 4px;
+        &-content {
+            padding: 0;
+        }
     }
     &-arrow {
-		background: #3d3d87;
-		width: 12px;
-		height:12px;
+        background: #3d3d87;
+        width: 12px;
+        height: 12px;
     }
     &-content {
-		padding: 0;
+        padding: 0;
         a {
             color: #bcbcd5;
             display: block;
@@ -232,12 +234,20 @@
     }
 }
 
-
-.ant-modal-footer,.ant-modal-header{
-	background: #f7f9fa;
+.ant-modal-footer,
+.ant-modal-header {
+    background: #f7f9fa;
 }
 
+.ant-message-notice-content {
+    color: #fff;
+}
 
-.ant-message-notice-content{
-	color:#fff;
+.ant-popover-content a {
+    padding: 0;
+    width: 7.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    font-size: .75rem;
 }
