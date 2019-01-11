@@ -1,4 +1,8 @@
 @import 'ggStyle.less';
+.ant-btn.ant-btn-primary.christmas:before {
+    display: none !important;
+}
+
 .ant-layout-sider,
 .ant-menu-dark,
 .ant-menu-dark .ant-menu-sub {
@@ -43,7 +47,10 @@
     box-shadow: 2px 2px 2px 0 rgba(176, 185, 191, 0.50);
     border: 0;
     &-head {
-        background: #f7f9fa
+        background: #f7f9fa;
+        &-title {
+            // font-size: 1.25rem;
+        }
     }
     &-wider-padding {
         .ant-card-head {
@@ -53,42 +60,6 @@
     }
 }
 
-.great-tabs {
-    color: #999;
-    .ant-tabs-bar {
-        background: #fff;
-        margin: 10px 15px;
-        box-shadow: 2px 2px 2px 0 rgba(176, 185, 191, 0.50);
-        border-bottom: 0;
-        height: 70px;
-        border-radius: 4px;
-    }
-    .ant-tabs-nav-container {
-        line-height: 47px;
-        font-size: 16px;
-        margin-left: 40px;
-    }
-    .ant-tabs-nav-wrap {
-        overflow: hidden;
-        margin-bottom: -3px;
-        padding-top: 3px;
-    }
-    .ant-tabs-ink-bar {
-        height: 6px;
-        border-radius: 3px;
-        background-color: @gg-purple-color;
-    }
-    .ant-tabs-nav {
-        .ant-tabs-tab {
-            margin-right: 60px;
-        }
-        .ant-tabs-tab-active,
-        .ant-tabs-tab:hover {
-            color: @gg-purple-color;
-            font-weight: normal;
-        }
-    }
-}
 
 .ant-table {
     color: rgba(0, 0, 0, .8);
@@ -98,10 +69,9 @@
     &-thead {
         >tr>th {
             background: #f7f9fa;
-            text-align: center;
-			// padding: 10px 16px;
-			padding:0;
-			white-space: nowrap;
+            text-align: center; // padding: 10px 16px;
+            padding: 0;
+            white-space: nowrap;
             font-size: 12px;
             line-height: 12px;
             border-bottom: 0;
@@ -237,6 +207,11 @@
 .ant-modal-footer,
 .ant-modal-header {
     background: #f7f9fa;
+}
+
+.ant-modal-body {
+    max-height: 80vh;
+    overflow: auto;
 }
 
 .ant-message-notice-content {

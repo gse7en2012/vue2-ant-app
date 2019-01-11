@@ -4,6 +4,7 @@ import Home from './views/Home.vue';
 import Admin from './views/Admin';
 import Login from './views/Login';
 import MyIndex from './views/MyIndex';
+import Abnormity from './views/Abnormity';
 import Data from './views/Data';
 import Profile from './views/Profile';
 import Index from './views/Index';
@@ -40,6 +41,10 @@ const routes = [{
 				path: 'profile',
 				name: 'profile',
 				component: Profile
+			},{
+				path:'abnormity',
+				name:'abnormity',
+				component:Abnormity
 			}
 		]
 	},

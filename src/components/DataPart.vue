@@ -404,7 +404,7 @@ export default {
 .card {
 	&-ctx {
 		display: flex;
-		margin: 0 -32px;
+		margin: 0 -24px;
 		.left {
 			flex: 30;
 		}

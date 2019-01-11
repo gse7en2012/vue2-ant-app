@@ -12,7 +12,7 @@
 					<p class="name">Gseven ></p>
 				</a-popover>
 			</div>
-			<a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
+			<a-menu theme="dark" mode="inline" :defaultSelectedKeys="selectedTab">
 				<a-menu-item key="1" @click="goToPage('index')">
 					<!-- <a-icon type="user"/> -->
 					<img src="@/assets/icons/index_u.png" class="u">
@@ -45,7 +45,7 @@
 					<img src="@/assets/icons/cash.png" class="c">
 					<span class="nav-text">提现管理</span>
 				</a-menu-item>
-				<a-menu-item key="7">
+				<a-menu-item key="7" @click="goToPage('abnormity')">
 					<img src="@/assets/icons/error_u.png" class="u">
 					<img src="@/assets/icons/error.png" class="c">
 					<span class="nav-text">异常上报</span>
@@ -59,10 +59,14 @@
 	</a-layout>
 </template>
 <script>
+
+const urlHash=[];
+
 export default {
 	data() {
 		return {
-			screenHeight: document.documentElement.clientHeight + "px"
+			screenHeight: document.documentElement.clientHeight + "px",
+			selectedTab:['1']
 		};
 	},
 	async mounted() {
